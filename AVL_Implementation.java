@@ -86,6 +86,8 @@ class AVL
 		Node newroot=node.right;
 		node.right=newroot.left;
 		newroot.left=node;
+		node.height=Math.max(node.left.height, node.right.height)+1;
+		newroot.height=Math.max(newroot.left.height,newroot.right.height)+1;
 		return newroot;
 	}
 	private int height(Node node) {
