@@ -19,13 +19,13 @@ class Solution {
         List<List<Integer>> res=new LinkedList<List<Integer>>();
         Deque<TreeNode> deque=new LinkedList<TreeNode>();
         if(root==null)return res;
-        int flag=0;//normal order 0,reverse order 1
+        boolean flag=true;//normal order 0,reverse order 1
         deque.offer(root);
         while(!deque.isEmpty())
         {
             int size=deque.size();
             List<Integer> al=new LinkedList<Integer>();
-            if(flag==0)//normal order
+            if(flag)//normal order
             {
                 for(int i=0;i<size;i++)
                 {
@@ -35,7 +35,7 @@ class Solution {
                     al.add(poped.val);
                 }
 
-                flag=1;
+                flag=false;
             }
             else//reverse order
             {
@@ -47,7 +47,7 @@ class Solution {
                       al.add(poped.val);
                    
                 }
-                flag=0;
+                flag=true;
             }
             res.add(al);
         }
